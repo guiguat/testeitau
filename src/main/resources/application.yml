@@ -1,0 +1,19 @@
+app:
+  aws:
+    topic: ${SNS_TOPIC:person-events-topic}
+    endpoint: ${AWS_ENDPOINT:https://localhost.localstack.cloud:4566}
+    access-key: ${AWS_ACCESS_KEY:test}
+    secret-key: ${AWS_SECRET_KEY:test}
+    region: ${AWS_REGION:us-east-1}
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: ${JDBC_URL:jdbc:mysql://localhost.localstack.cloud:4510/person}
+    hikari:
+      password: ${DB_PASSWORD:teste}
+      username: ${DB_USER:teste}
+  flyway:
+    enabled: true
+    user: ${DB_USER:teste}
+    password: ${DB_PASSWORD:teste}
+    url: ${JDBC_URL:jdbc:mysql://localhost.localstack.cloud:4510/person}

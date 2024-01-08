@@ -1,0 +1,26 @@
+POST http://localhost:8080/person
+Content-Type: application/json
+
+{
+  "firstName": "Guilherme",
+  "lastName": "Guatura",
+  "age": 20,
+  "country": "BR"
+}
+###
+GET http://localhost:8080/person/1
+
+###
+GET http://localhost:8080/person
+
+###
+DELETE http://localhost:8080/person/1
+
+###
+PATCH http://localhost:8080/person/2
+Content-Type: application/json
+
+{
+  "age": 25,
+  "country": "BR"
+}

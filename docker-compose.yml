@@ -1,0 +1,30 @@
+services:
+  app:
+    build:
+      dockerfile: ./Dockerfile
+    ports:
+      - '8080:8080'
+    networks:
+      - app-network
+    environment:
+      SPRING_PROFILES_ACTIVE:
+      JDBC_URL: jdbc:mysql://mysql:3306/person
+      DB_USER: root
+      DB_PASSWORD: teste
+  mysql:
+    image: mysql:8.0
+    volumes:
+      - mysql-data:/var/lib/mysql
+    networks:
+      - app-network
+    environment:
+      MYSQL_ROOT_PASSWORD: teste
+      MYSQL_DATABASE: person
+    ports:
+      - '3306:3306'
+
+volumes:
+  mysql-data:
+
+networks:
+  app-network:
